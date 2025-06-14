@@ -13,7 +13,7 @@ class PistaController extends Controller
      */
     public function index()
     {
-        //
+        return view('pistas.index');
     }
 
     /**
