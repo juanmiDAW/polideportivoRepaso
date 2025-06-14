@@ -1,5 +1,5 @@
 <div>
-    <select name="pista" id="" wire:model.live="pista">
+    <select name="pista" id="" wire:model.live="pista_id">
         @foreach ($pistas as $pista)
             <option value="{{ $pista->id }}">{{ $pista->nombre }}</option>
         @endforeach
