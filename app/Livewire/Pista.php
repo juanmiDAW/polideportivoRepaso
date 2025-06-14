@@ -13,11 +13,12 @@ class Pista extends Component
     public $pista_id;
     public $pistas;
     public $pistaSeleccion;
+    public $reservas;
 
     public function mount(){
         $this->pistas = ModelsPista::all();
         $this->pista_id = 1;
-        $this->pistaSeleccion = Reserva::with('pista')->where('pista_id', $this->pista_id)->first();        
+        $this->pistaSeleccion = Reserva::where('pista_id', $this->pista_id)->first();
     }
 
     public function reservar($fecha_hora){
@@ -27,6 +28,11 @@ class Pista extends Component
             'user_id' => auth()->user()->id,
         ]);
     }
+
+    public function anular($reserva_id){
+        Reserva::destroy($reserva_id);
+    }
+
     public function render()
     {
         return view('livewire.pista');
